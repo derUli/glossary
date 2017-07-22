@@ -1,0 +1,1 @@
+CREATE TABLE `{prefix}glossary_term` ( `id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(100) NOT NULL , `description` TEXT NOT NULL , `glossary_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;

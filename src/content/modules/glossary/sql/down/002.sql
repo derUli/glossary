@@ -1,0 +1,1 @@
+drop table if exists `{prefix}glossary_term`;
