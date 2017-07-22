@@ -1,0 +1,9 @@
+{
+	"source" : "extend",
+	"embed" : false,
+	"version" : "1.0.0",
+	"controllers" : {
+		"Glossary" : "Glossary.php"
+	}, 
+	"main_class" : "Glossary"
+}
