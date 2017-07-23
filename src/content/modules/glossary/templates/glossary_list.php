@@ -1,7 +1,11 @@
 <?php
 $glossaries = Glossary::getAll();
 ?>
-<table>
+<p>
+	<a href="<?php echo ModuleHelper::buildActionURL("new_glossary");?>"
+		class="btn btn-default"><?php translate("new");?></a>
+</p>
+<table class="tablesorter">
 	<thead>
 		<tr>
 			<th>Titel</th>
