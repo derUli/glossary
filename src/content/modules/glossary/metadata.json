@@ -1,9 +1,13 @@
 {
-	"source" : "extend",
-	"embed" : false,
-	"version" : "1.0.0",
-	"controllers" : {
-		"Glossary" : "Glossary.php"
-	}, 
-	"main_class" : "Glossary"
+	"source": "extend",
+	"embed": false,
+	"version": "1.0.0",
+	"controllers": {
+		"Glossary": "Glossary.php"
+	},
+	"main_class": "Glossary",
+	"custom_acl": [
+		"glossary"
+	],
+	"admin_permission": "glossary"
 }

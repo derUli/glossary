@@ -1,6 +1,6 @@
 <?php
 
-class Glossary
+class Glossary extends Controller
 {
 
     private $moduleName = "glossary";
