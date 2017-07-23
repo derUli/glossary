@@ -1,13 +1,15 @@
 <?php
 
-class Glossary extends Model
+class Term extends Model
 {
 
     private $title = null;
 
+    private $description = null;
+
     public function loadByID($id)
     {
-        $sql = "select id, title from `{prefix}glossary` where id = ?";
+        $sql = "select id, title from `{prefix}glossary_term` where id = ?";
         $args = array(
             intval($id)
         );
@@ -29,9 +31,10 @@ class Glossary extends Model
 
     protected function insert()
     {
-        $sql = "INSERT INTO `{prefix}glossary` (title) values (?)";
+        $sql = "INSERT INTO `{prefix}glossary_term` (title, description) values (?, ?)";
         $args = array(
-            $this->getTitle()
+            $this->getTitle(),
+            $this->getDescription()
         );
         $query = Database::pQuery($sql, $args, true);
         $this->setID(Database::getLastInsertID());
@@ -39,9 +42,10 @@ class Glossary extends Model
 
     protected function update()
     {
-        $sql = "update `{prefix}glossary` set title = ? where id = ?";
+        $sql = "update `{prefix}glossary_term` set title = ?, description = ? where id = ?";
         $args = array(
             $this->getTitle(),
+            $this->getDescription(),
             $this->getID()
         );
         Database::pQuery($sql, $args, true);
@@ -57,9 +61,19 @@ class Glossary extends Model
         $this->title = is_string($val) ? $val : null;
     }
 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($val)
+    {
+        $this->description = is_string($val) ? $val : null;
+    }
+
     public function delete()
     {
-        $sql = "delete from `{prefix}glossary` where id = ?";
+        $sql = "delete from `{prefix}glossary_term` where id = ?";
         $args = array(
             $this->getID()
         );
@@ -69,20 +83,26 @@ class Glossary extends Model
 
     public static function getAll($order = "title")
     {
-        $sql = "select id from `{prefix}glossary` order by $order";
+        $sql = "select id from `{prefix}glossary_term` order by $order";
         $query = Database::query($sql, true);
         $result = array();
         while ($row = Database::fetchObject($query)) {
-            $result[] = new Glossary($row->id);
+            $result[] = new Term($row->id);
         }
         return $result;
     }
 
-    public function getTerms()
+    public static function getAllByGlossaryId($glossaryId, $order = "title")
     {
-        if ($this->getID() === null) {
-            return null;
+        $sql = "select id from `{prefix}glossary_term` where glossary_id = ? order by $order";
+        $args = array(
+            intval($glossaryId)
+        );
+        $query = Database::pQuery($sql, $args, true);
+        $result = array();
+        while ($row = Database::fetchObject($query)) {
+            $result[] = new Term($row->id);
         }
-        return Term::getAllByGlossaryId($this->getID());
+        return $result;
     }
 }

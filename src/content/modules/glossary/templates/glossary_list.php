@@ -1,3 +1,6 @@
+<?php
+$glossaries = Glossary::getAll();
+?>
 <table>
 	<thead>
 		<tr>
@@ -8,5 +11,13 @@
 		</tr>
 	</thead>
 	<tbody>
+	<?php foreach($glossaries as $glossary){?>
+	<tr>
+			<td><?php Template::escape($glossary->getTitle());?></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	<?php }?>
 	</tbody>
 </table>
