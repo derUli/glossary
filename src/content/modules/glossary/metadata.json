@@ -1,11 +1,14 @@
 {
 	"source": "extend",
 	"embed": false,
-	"version": "1.0.0",
-	"controllers": {
-		"Glossary": "Glossary.php"
+	"version": "0.0.2",
+	"objects": {
+		"Glossary": "models/Glossary.php"
 	},
-	"main_class": "Glossary",
+	"controllers": {
+		"GlossaryModule": "GlossaryModule.php"
+	},
+	"main_class": "GlossaryModule",
 	"custom_acl": [
 		"glossary"
 	],
