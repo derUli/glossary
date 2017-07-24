@@ -3,7 +3,7 @@
 class GlossaryController extends Controller
 {
 
-    private $moduleName = "glossasry";
+    private $moduleName = "glossary";
 
     public function create()
     {
