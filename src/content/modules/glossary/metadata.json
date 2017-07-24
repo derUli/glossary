@@ -1,7 +1,7 @@
 {
 	"source": "extend",
 	"embed": false,
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"objects": {
 		"Glossary": "models/Glossary.php"
 	},
@@ -11,7 +11,8 @@
 	},
 	"actions": {
 		"glossary_new": "templates/glossary_new.php",
-		"glossary_edit": "templates/glossary_edit.php"
+		"glossary_edit": "templates/glossary_edit.php",
+		"term_list": "templates/term_list.php"
 	},
 	"action_controllers": {
 		"glossary_new": "controllers/GlossaryController.php",

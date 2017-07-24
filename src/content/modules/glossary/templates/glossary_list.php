@@ -24,13 +24,16 @@ $glossaries = Glossary::getAll();
 			<td><input type="text"
 				value="[glossary]<?php echo $glossary->getID();?>[/glossary]"
 				readonly onclick="this.select();"></td>
-			<td></td>
-			<td><a
+			<td class="text-center"><a
+				href="<?php echo ModuleHelper::buildActionURL("term_list", "id=".$glossary->getID());?>"><img
+					src="gfx/preview.png" alt="<?php translate("open");?>"
+					title="<?php translate("open");?>"></a></td>
+			<td class="text-center"><a
 				href="<?php echo ModuleHelper::buildActionURL("glossary_edit", "id=".$glossary->getID());?>">
 					<img src="gfx/edit.png" alt="<?php translate("edit");?>"
 					title="<?php translate("edit");?>">
 			</a></td>
-			<td><?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "delete", array("id" => $glossary->getID()));?>
+			<td class="text-center"><?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "delete", array("id" => $glossary->getID()));?>
 			<input type="image" src="gfx/delete.gif"
 				alt="<?php translate("delete")?>"
 				title="<?php translate("delete")?>">
