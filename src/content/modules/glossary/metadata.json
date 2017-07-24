@@ -19,5 +19,8 @@
 	"custom_acl": [
 		"glossary"
 	],
-	"admin_permission": "glossary"
+	"admin_permission": "glossary",
+	"controller_function_permissions": {
+		"GlossaryController::save": "glossary"
+	}
 }

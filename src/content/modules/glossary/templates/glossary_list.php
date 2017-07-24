@@ -9,15 +9,19 @@ $glossaries = Glossary::getAll();
 	<thead>
 		<tr>
 			<th>Titel</th>
-			<td><strong><?php translate("view");?></strong></td>
-			<td><strong><?php translate("edit");?></strong></td>
-			<td><strong><?php translate("delete");?></strong></td>
+			<td><strong><?php translate("code_to_embed");?></strong></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 	</thead>
 	<tbody>
 	<?php foreach($glossaries as $glossary){?>
 	<tr>
 			<td><?php Template::escape($glossary->getTitle());?></td>
+			<td><input type="text"
+				value="[glossary]<?php echo $glossary->getID();?>[/glossary]"
+				readonly onclick="this.select();"></td>
 			<td></td>
 			<td></td>
 			<td></td>

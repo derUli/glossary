@@ -3,5 +3,5 @@
    "version" : "0.0.4",
    "description" : "Glossary",
    "categories" : ["glossary", "encyclopedia"],
-   "compatible_from" : "2017.3.15"
+   "compatible_from" : "2017.3.16"
 }

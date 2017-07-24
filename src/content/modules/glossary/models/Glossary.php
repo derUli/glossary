@@ -23,7 +23,7 @@ class Glossary extends Model
             $this->setID(null);
         } else {
             $this->title = $result->title;
-            $this->setID($result->id);
+            $this->setID(intval($result->id));
         }
     }
 
