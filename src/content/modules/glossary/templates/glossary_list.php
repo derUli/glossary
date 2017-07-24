@@ -30,7 +30,11 @@ $glossaries = Glossary::getAll();
 					<img src="gfx/edit.png" alt="<?php translate("edit");?>"
 					title="<?php translate("edit");?>">
 			</a></td>
-			<td></td>
+			<td><?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "delete", array("id" => $glossary->getID()));?>
+			<input type="image" src="gfx/delete.gif"
+				alt="<?php translate("delete")?>"
+				title="<?php translate("delete")?>">
+				</form></td>
 		</tr>
 	<?php }?>
 	</tbody>
