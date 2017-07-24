@@ -3,4 +3,13 @@
 	<a href="<?php echo ModuleHelper::buildAdminURL("glossary");?>"
 		class="btn btn-default"><?php translate("back");?></a>
 </p>
-Not implemented yet.
+<?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "create");?>
+<?php csrf_token_html()?>
+<p>
+	<strong><?php translate("title")?></strong> <br /> <input type="text"
+		name="title" value="" required>
+</p>
+<p>
+	<input type="submit" value="<?php translate("save");?>">
+</p>
+</form>
