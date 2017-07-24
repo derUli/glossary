@@ -2,7 +2,7 @@
 $glossaries = Glossary::getAll();
 ?>
 <p>
-	<a href="<?php echo ModuleHelper::buildActionURL("new_glossary");?>"
+	<a href="<?php echo ModuleHelper::buildActionURL("glossary_new");?>"
 		class="btn btn-default"><?php translate("new");?></a>
 </p>
 <table class="tablesorter">
