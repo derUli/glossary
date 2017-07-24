@@ -1,5 +1,4 @@
 <?php
-
 $acl = new ACL();
 if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
     ?>
@@ -9,7 +8,6 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 		class="btn btn-default"><?php translate("back");?></a>
 </p>
 <?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "create");?>
-<?php csrf_token_html()?>
 <p>
 	<strong><?php translate("title")?></strong> <br /> <input type="text"
 		name="title" value="" required>
@@ -19,7 +17,6 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 </p>
 </form>
 <?php
-
 } else {
     noperms();
 }

@@ -15,7 +15,6 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 		class="btn btn-default"><?php translate("back");?></a>
 </p>
 <?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "update");?>
-<?php csrf_token_html()?>
 <p>
 	<strong><?php translate("title")?></strong> <br /> <input type="text"
 		name="title" value="<?php Template::escape($data->getTitle());?>"
