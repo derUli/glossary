@@ -22,7 +22,11 @@ $glossaries = Glossary::getAll();
 			<td><input type="text"
 				value="[glossary]<?php echo $glossary->getID();?>[/glossary]"
 				readonly onclick="this.select();"></td>
-			<td></td>
+			<td><a
+				href="<?php echo ModuleHelper::buildActionURL("glossary_edit", "id=".$glossary->getID())?>">
+					<img src="gfx/preview.png" alt="<?php translate("open");?>"
+					title="<?php translate("open");?>">
+			</a></td>
 			<td></td>
 			<td></td>
 		</tr>

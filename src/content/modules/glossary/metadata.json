@@ -10,10 +10,12 @@
 		"GlossaryController": "controllers/GlossaryController.php"
 	},
 	"actions": {
-		"glossary_new": "templates/glossary_new.php"
+		"glossary_new": "templates/glossary_new.php",
+		"glossary_edit": "templates/glossary_edit.php"
 	},
 	"action_controllers": {
-		"glossary_new": "controllers/GlossaryController.php"
+		"glossary_new": "controllers/GlossaryController.php",
+		"glossary_edit": "controllers/GlossaryController.php"
 	},
 	"main_class": "GlossaryModule",
 	"custom_acl": [
@@ -21,6 +23,7 @@
 	],
 	"admin_permission": "glossary",
 	"controller_function_permissions": {
-		"GlossaryController::save": "glossary"
+		"GlossaryController::create": "glossary",
+		"GlossaryController::update": "glossary"
 	}
 }

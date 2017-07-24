@@ -15,4 +15,16 @@ class GlossaryController extends Controller
         }
         Request::redirect(ModuleHelper::buildAdminURL($this->moduleName));
     }
+
+    public function update()
+    {
+        $id = Request::getVar("title", "int");
+        $title = Request::getVar("title");
+        if ($id) {
+            $glossary = new Glossary($id);
+            $glossary->setTitle($title);
+            $glossary->save();
+        }
+        Request::redirect(ModuleHelper::buildAdminURL($this->moduleName));
+    }
 }
