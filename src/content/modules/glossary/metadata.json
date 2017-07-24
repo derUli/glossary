@@ -24,6 +24,7 @@
 	"admin_permission": "glossary",
 	"controller_function_permissions": {
 		"GlossaryController::create": "glossary",
-		"GlossaryController::update": "glossary"
+		"GlossaryController::update": "glossary",
+		"GlossaryController::delete": "glossary"
 	}
 }

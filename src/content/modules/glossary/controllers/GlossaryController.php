@@ -18,12 +18,22 @@ class GlossaryController extends Controller
 
     public function update()
     {
-        $id = Request::getVar("title", "int");
+        $id = Request::getVar("id", "int");
         $title = Request::getVar("title");
         if ($id) {
             $glossary = new Glossary($id);
             $glossary->setTitle($title);
             $glossary->save();
+        }
+        Request::redirect(ModuleHelper::buildAdminURL($this->moduleName));
+    }
+
+    public function delete()
+    {
+        $id = Request::getVar("id", "int");
+        if ($id) {
+            $glossary = new Glossary($id);
+            $glossary->delete();
         }
         Request::redirect(ModuleHelper::buildAdminURL($this->moduleName));
     }
