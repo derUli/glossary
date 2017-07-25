@@ -3,7 +3,8 @@
 	"embed": false,
 	"version": "0.0.5",
 	"objects": {
-		"Glossary": "models/Glossary.php"
+		"Glossary": "models/Glossary.php",
+		"Term": "models/Term.php"
 	},
 	"controllers": {
 		"GlossaryModule": "GlossaryModule.php",

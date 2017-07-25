@@ -8,7 +8,7 @@ $glossaries = Glossary::getAll();
 <table class="tablesorter">
 	<thead>
 		<tr>
-			<th>Titel</th>
+			<th><?php translate("title");?></th>
 			<td><strong><?php translate("code_to_embed");?></strong></td>
 			<td></td>
 			<td></td>
