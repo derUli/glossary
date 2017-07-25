@@ -11,9 +11,9 @@
 		"GlossaryController": "controllers/GlossaryController.php"
 	},
 	"actions": {
-		"glossary_new": "templates/glossary_new.php",
-		"glossary_edit": "templates/glossary_edit.php",
-		"term_list": "templates/term_list.php"
+		"glossary_new": "templates/glossary/new.php",
+		"glossary_edit": "templates/glossary/edit.php",
+		"term_list": "templates/term/list.php"
 	},
 	"action_controllers": {
 		"glossary_new": "controllers/GlossaryController.php",

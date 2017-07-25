@@ -17,6 +17,6 @@ class GlossaryModule extends Controller
 
     public function settings()
     {
-        return Template::executeModuleTemplate($this->moduleName, "glossary_list.php");
+        return Template::executeModuleTemplate($this->moduleName, "glossary/list.php");
     }
 }

@@ -3,7 +3,7 @@ $acl = new ACL();
 if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
     ?><?php
 
-    $id = Request::getVar("id", "int");
+    $id = Request::getVar("id", null, "int");
     if (! $id) {
         Request::javascriptRedirect(ModuleHelper::buildAdminURL("glossary"));
     }
