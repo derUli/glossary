@@ -13,7 +13,7 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 		href="<?php echo ModuleHelper::buildActionURL("term_list", "id=".$glossary_id);?>"
 		class="btn btn-default"><?php translate("back");?></a>
 </p>
-<?php echo ModuleHelper::buildMethodCallForm("GlossaryController", "create");?>
+<?php echo ModuleHelper::buildMethodCallForm("TermController", "create");?>
 <input type="hidden" name="glossary_id"
 	value="<?php echo $glossary_id;?>">
 <p>

@@ -8,7 +8,8 @@
 	},
 	"controllers": {
 		"GlossaryModule": "GlossaryModule.php",
-		"GlossaryController": "controllers/GlossaryController.php"
+		"GlossaryController": "controllers/GlossaryController.php",
+		"TermController": "controllers/TermController.php"
 	},
 	"actions": {
 		"glossary_new": "templates/glossary/new.php",

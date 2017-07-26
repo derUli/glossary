@@ -7,9 +7,11 @@ class Term extends Model
 
     private $description = null;
 
+    private $glossary_id = null;
+
     public function loadByID($id)
     {
-        $sql = "select id, title from `{prefix}glossary_term` where id = ?";
+        $sql = "select id, title, glossary_id from `{prefix}glossary_term` where id = ?";
         $args = array(
             intval($id)
         );
@@ -23,18 +25,21 @@ class Term extends Model
         if ($result == null) {
             $this->title = null;
             $this->setID(null);
+            $this->setGlossaryID(null);
         } else {
             $this->title = $result->title;
             $this->setID($result->id);
+            $this->setGlossaryID($result->glossary_id);
         }
     }
 
     protected function insert()
     {
-        $sql = "INSERT INTO `{prefix}glossary_term` (title, description) values (?, ?)";
+        $sql = "INSERT INTO `{prefix}glossary_term` (title, description, glossary_id) values (?, ?, ?)";
         $args = array(
             $this->getTitle(),
-            $this->getDescription()
+            $this->getDescription(),
+            $this->getGlossaryID()
         );
         $query = Database::pQuery($sql, $args, true);
         $this->setID(Database::getLastInsertID());
@@ -69,6 +74,16 @@ class Term extends Model
     public function setDescription($val)
     {
         $this->description = is_string($val) ? $val : null;
+    }
+
+    public function getGlossaryID()
+    {
+        return $this->glossary_id;
+    }
+
+    public function setGlossaryID($val)
+    {
+        $this->glossary_id = is_int($val) ? $val : null;
     }
 
     public function delete()
