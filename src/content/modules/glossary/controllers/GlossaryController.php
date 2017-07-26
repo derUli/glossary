@@ -30,7 +30,7 @@ class GlossaryController extends Controller
 
     public function delete()
     {
-        $id = Request::getVar("id", "int");
+        $id = Request::getVar("id", null, "int");
         if ($id) {
             $glossary = new Glossary($id);
             $glossary->delete();

@@ -1,6 +1,6 @@
 {
    "id" : "glossary",
-   "version" : "0.0.6",
+   "version" : "0.0.7",
    "description" : "Glossary",
    "categories" : ["glossary", "encyclopedia"],
    "compatible_from" : "2017.3.16"

@@ -11,7 +11,7 @@ class Term extends Model
 
     public function loadByID($id)
     {
-        $sql = "select id, title, description, glossary_id from `{prefix}glossary_term` where id = ?";
+        $sql = "select * from `{prefix}glossary_term` where id = ?";
         $args = array(
             intval($id)
         );
@@ -22,6 +22,7 @@ class Term extends Model
 
     protected function fillVars($result = null)
     {
+        var_dump($result);
         if ($result == null) {
             $this->title = null;
             $this->setID(null);
@@ -30,7 +31,7 @@ class Term extends Model
         } else {
             $this->title = $result->title;
             $this->setID($result->id);
-            $this->setGlossaryID($result->glossary_id);
+            $this->setGlossaryID(intval($result->glossary_id));
             $this->setDescription($result->description);
         }
     }

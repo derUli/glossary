@@ -20,4 +20,18 @@ class TermController extends Controller
         
         Request::redirect(ModuleHelper::buildActionURL("term_list", "id=" . $glossary_id));
     }
+
+    public function delete()
+    {
+        $glossary_id = null;
+        $id = Request::getVar("id", null, "int");
+        if ($id) {
+            $term = new Term(intval($id));
+            
+            $glossary_id = $term->getGlossaryID();
+            $term->delete();
+        }
+        var_dump($term);
+        Request::redirect(ModuleHelper::buildActionURL("term_list", "id=" . $glossary_id));
+    }
 }
