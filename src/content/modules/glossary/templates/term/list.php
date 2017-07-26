@@ -19,7 +19,7 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 	</div>
 	<div class="col-xs-6 text-right">
 		<a
-			href="<?php echo ModuleHelper::buildActionURL("term_new", "id=".$id);?>"
+			href="<?php echo ModuleHelper::buildActionURL("term_new", "glossary_id=".$id);?>"
 			class="btn btn-default"><?php translate("new");?></a>
 	</div>
 </div>
