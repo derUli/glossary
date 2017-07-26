@@ -11,10 +11,18 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
     $terms = Term::getAllByGlossaryId($id);
     ?>
 <h1><?php translate("terms_of_x", array("%title%" => Template::getEscape($data->getTitle())));?></h1>
-<p>
-	<a href="<?php echo ModuleHelper::buildAdminURL("glossary");?>"
-		class="btn btn-default"><?php translate("back");?></a>
-</p>
+
+<div class="row">
+	<div class="col-xs-6">
+		<a href="<?php echo ModuleHelper::buildAdminURL("glossary");?>"
+			class="btn btn-default"><?php translate("back");?></a>
+	</div>
+	<div class="col-xs-6 text-right">
+		<a
+			href="<?php echo ModuleHelper::buildActionURL("term_new", "id=".$id);?>"
+			class="btn btn-default"><?php translate("new");?></a>
+	</div>
+</div>
 <table class="tablesorter">
 	<thead>
 		<tr>
