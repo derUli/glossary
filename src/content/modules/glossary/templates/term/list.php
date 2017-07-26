@@ -8,7 +8,7 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
         Request::javascriptRedirect(ModuleHelper::buildAdminURL("glossary"));
     }
     $data = new Glossary($id);
-    $terms = Term::getAllByGlossaryId($id);
+    $terms = Term::getAllByGlossaryId(intval($id));
     ?>
 <h1><?php translate("terms_of_x", array("%title%" => Template::getEscape($data->getTitle())));?></h1>
 

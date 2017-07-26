@@ -12,7 +12,7 @@ class TermController extends Controller
         $description = Request::getVar("description");
         if ($title and $description and $glossary_id) {
             $term = new Term();
-            $term->setGlossaryID($glossary_id);
+            $term->setGlossaryID(intval($glossary_id));
             $term->setTitle($title);
             $term->setDescription($description);
             $term->save();
