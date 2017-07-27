@@ -52,8 +52,8 @@ class GlossaryModule extends Controller
                 $placeholder = $match[0][$i];
                 $value = unhtmlspecialchars($match[1][$i]);
                 $splitted = explode(",", $value);
-                ViewBag::set("glossary_id", trim($splitted[0]));
-                ViewBag::set("letter", trim($splitted[1]));
+                ViewBag::set("glossary_id", trim(intval($splitted[0])));
+                ViewBag::set("letter", trim(strtoupper($splitted[1])));
                 $output = Template::executeModuleTemplate($this->moduleName, "output/terms-by-letter.php");
                 $html = str_replace($placeholder, $output, $html);
             }
