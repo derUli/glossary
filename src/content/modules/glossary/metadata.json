@@ -1,7 +1,7 @@
 {
 	"source": "extend",
 	"embed": false,
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"objects": {
 		"Glossary": "models/Glossary.php",
 		"Term": "models/Term.php"
@@ -35,6 +35,7 @@
 		"GlossaryController::update": "glossary",
 		"GlossaryController::delete": "glossary",
 		"TermController::create": "glossary",
+		"TermController::update": "glossary",
 		"TermController::delete": "glossary"
 	}
 }

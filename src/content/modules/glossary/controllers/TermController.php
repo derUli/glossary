@@ -21,6 +21,22 @@ class TermController extends Controller
         Request::redirect(ModuleHelper::buildActionURL("term_list", "id=" . $glossary_id));
     }
 
+    public function update()
+    {
+        $id = Request::getVar("id", "int");
+        $title = Request::getVar("title");
+        $description = Request::getVar("description");
+        $glossary_id = null;
+        if ($id) {
+            $term = new Term($id);
+            $term->setTitle($title);
+            $term->setDescription($description);
+            $term->save();
+            $glossary_id = $term->getGlossaryID();
+        }
+        Request::redirect(ModuleHelper::buildActionURL("term_list", "id=" . $glossary_id));
+    }
+
     public function delete()
     {
         $glossary_id = null;
