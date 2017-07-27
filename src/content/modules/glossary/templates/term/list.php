@@ -1,15 +1,15 @@
 <?php
-$acl = new ACL();
-if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
-    ?><?php
+$acl = new ACL ();
+if ($acl->hasPermission ( getModuleMeta ( "glossary", "admin_permission" ) )) {
+	?><?php
 
-    $id = Request::getVar("id", null, "int");
-    if (! $id) {
-        Request::javascriptRedirect(ModuleHelper::buildAdminURL("glossary"));
-    }
-    $data = new Glossary($id);
-    $terms = Term::getAllByGlossaryId(intval($id));
-    ?>
+	$id = Request::getVar ( "id", null, "int" );
+	if (! $id) {
+		Request::javascriptRedirect ( ModuleHelper::buildAdminURL ( "glossary" ) );
+	}
+	$data = new Glossary ( $id );
+	$terms = Term::getAllByGlossaryId ( intval ( $id ) );
+	?>
 <h1><?php translate("terms_of_x", array("%title%" => Template::getEscape($data->getTitle())));?></h1>
 
 <div class="row">
@@ -56,6 +56,6 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 
 <?php
 } else {
-    noperms();
+	noperms ();
 }
 ?>
