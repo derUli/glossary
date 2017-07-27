@@ -33,6 +33,18 @@ class GlossaryModule extends Controller
                 $html = str_replace($placeholder, $html, $html);
             }
         }
+        
+        preg_match_all("/\[term]([0-9]+)\[\/term]/", $html, $match);
+        
+        if (count($match) > 0) {
+            for ($i = 0; $i < count($match[0]); $i ++) {
+                $placeholder = $match[0][$i];
+                $id = unhtmlspecialchars($match[1][$i]);
+                ViewBag::set("term_id", $id);
+                $html = Template::executeModuleTemplate($this->moduleName, "output/term.php");
+                $html = str_replace($placeholder, $html, $html);
+            }
+        }
         return $html;
     }
 }

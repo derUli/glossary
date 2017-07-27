@@ -28,6 +28,7 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 		<tr>
 			<th><?php translate("title");?></th>
 			<th><?php translate("description");?></th>
+			<td><strong><?php translate("code_to_embed");?></strong></td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -39,6 +40,9 @@ if ($acl->hasPermission(getModuleMeta("glossary", "admin_permission"))) {
 	<tr>
 			<td><?php Template::escape($term->getTitle());?></td>
 			<td><?php Template::escape($term->getDescription());?></td>
+			<td><input type="text"
+				value="[term]<?php echo $term->getID();?>[/term]" readonly
+				onclick="this.select();"></td>
 			<td class="text-center"><a
 				href="<?php echo ModuleHelper::buildActionURL("term_edit", "id=".$term->getID());?>">
 					<img src="gfx/edit.png" alt="<?php translate("edit");?>"
