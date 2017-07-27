@@ -29,8 +29,8 @@ class GlossaryModule extends Controller
                 $placeholder = $match[0][$i];
                 $id = unhtmlspecialchars($match[1][$i]);
                 ViewBag::set("glossary_id", $id);
-                $html = Template::executeModuleTemplate($this->moduleName, "output/all.php");
-                $html = str_replace($placeholder, $html, $html);
+                $output = Template::executeModuleTemplate($this->moduleName, "output/all.php");
+                $html = str_replace($placeholder, $output, $html);
             }
         }
         
@@ -41,8 +41,21 @@ class GlossaryModule extends Controller
                 $placeholder = $match[0][$i];
                 $id = unhtmlspecialchars($match[1][$i]);
                 ViewBag::set("term_id", $id);
-                $html = Template::executeModuleTemplate($this->moduleName, "output/term.php");
-                $html = str_replace($placeholder, $html, $html);
+                $output = Template::executeModuleTemplate($this->moduleName, "output/term.php");
+                $html = str_replace($placeholder, $output, $html);
+            }
+        }
+        preg_match_all("/\[terms\-by\-letter](.+)\[\/terms\-by\-letter]/", $html, $match);
+        
+        if (count($match) > 0) {
+            for ($i = 0; $i < count($match[0]); $i ++) {
+                $placeholder = $match[0][$i];
+                $value = unhtmlspecialchars($match[1][$i]);
+                $splitted = explode(",", $value);
+                ViewBag::set("glossary_id", trim($splitted[0]));
+                ViewBag::set("letter", trim($splitted[1]));
+                $output = Template::executeModuleTemplate($this->moduleName, "output/terms-by-letter.php");
+                $html = str_replace($placeholder, $output, $html);
             }
         }
         return $html;

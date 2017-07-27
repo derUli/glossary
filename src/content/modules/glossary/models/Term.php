@@ -141,7 +141,20 @@ class Term extends Model
         }
         return $result;
     }
-
+    public static function getAllbyGlossaryAndFirstLetter($glossary_id, $letter, $order = "title")
+    {
+        $sql = "select id from `{prefix}glossary_term` where ucase(LEFT(title, 1)) = ? and glossary_id = ? order by $order";
+        $args = array(
+            strval($letter),
+            intval($glossary_id)
+        );
+        $query = Database::pQuery($sql, $args, true);
+        $result = array();
+        while ($row = Database::fetchObject($query)) {
+            $result[] = new Term($row->id);
+        }
+        return $result;
+    }
     public static function getAllFirstLetters()
     {
         $sql = "SELECT ucase(LEFT(title, 1)) as first_letter FROM {prefix}glossary_term group by ucase(LEFT(title, 1)) order by first_letter;";

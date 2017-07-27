@@ -1,7 +1,7 @@
 {
 	"source": "extend",
 	"embed": false,
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"objects": {
 		"Glossary": "models/Glossary.php",
 		"Term": "models/Term.php"
