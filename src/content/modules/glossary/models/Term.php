@@ -128,11 +128,25 @@ class Term extends Model
         return $result;
     }
 
+    public static function getAllbyFirstLetter($letter, $order = "title")
+    {
+        $sql = "select id from `{prefix}glossary_term` where ucase(LEFT(title, 1)) = ? order by $order";
+        $args = array(
+            strval($letter)
+        );
+        $query = Database::pQuery($sql, $args, true);
+        $result = array();
+        while ($row = Database::fetchObject($query)) {
+            $result[] = new Term($row->id);
+        }
+        return $result;
+    }
+
     public static function getAllFirstLetters()
     {
-        $sql = "SELECT ucase(LEFT(title, 1)) as first_letter FROM {prefix}_glossary_term group by ucase(LEFT(title, 1)) order by first_letter;";
+        $sql = "SELECT ucase(LEFT(title, 1)) as first_letter FROM {prefix}glossary_term group by ucase(LEFT(title, 1)) order by first_letter;";
         
-        $query = Database::pQuery($sql, true);
+        $query = Database::Query($sql, true);
         $result = array();
         while ($row = Database::fetchObject($query)) {
             $result[] = $row->first_letter;
