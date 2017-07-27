@@ -1,7 +1,7 @@
 {
 	"source": "extend",
 	"embed": false,
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"objects": {
 		"Glossary": "models/Glossary.php",
 		"Term": "models/Term.php"
@@ -15,13 +15,15 @@
 		"glossary_new": "templates/glossary/new.php",
 		"glossary_edit": "templates/glossary/edit.php",
 		"term_list": "templates/term/list.php",
-		"term_new": "templates/term/new.php"
+		"term_new": "templates/term/new.php",
+		"term_edit": "templates/term/edit.php"
 	},
 	"action_controllers": {
 		"glossary_new": "controllers/GlossaryController.php",
 		"glossary_edit": "controllers/GlossaryController.php",
 		"term_list": "controllers/GlossaryController.php",
-		"term_new": "controllers/GlossaryController.php"
+		"term_new": "controllers/GlossaryController.php",
+		"term_edit": "controllers/GlossaryController.php"
 	},
 	"main_class": "GlossaryModule",
 	"custom_acl": [
